@@ -5,24 +5,41 @@ var today = new Date();
 var datePicker = {
     selectForward: true,
     startDate: today,
-    inline: false
+    inline: false,
+    separator : ' to ',
+    getValue: function()
+    {
+        if ($('#pickupDate').val() && $('#toDate').val() )
+            return $('#pickupDate').val() + ' to ' + $('#toDate').val();
+        else
+            return '';
+    },
+    setValue: function(s,s1,s2)
+    {
+        $('#pickupDate').val(s1);
+        $('#toDate').val(s2);
+    },
+    extraClass: 'date-range-picker19'
 };
 
 $('#pickupDate').dateRangePicker(datePicker);
+$('#toDate').dateRangePicker(datePicker);
 
 // Right Sidebar
 var infoRatio = $(window).width() * 0.63;
 $('.open-right').sideNav({ // Trigger id
     menuWidth: infoRatio, // Default is 240
     edge: 'right', // Choose the horizontal origin
-    closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    draggable: true
 });
 
 // Left Sidebar
 $('.open-left').sideNav({ // Trigger id
     menuWidth: 240, // Default is 240
     edge: 'left', // Choose the horizontal origin
-    closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    draggable: true 
 });
 
 $.log = function(message) {

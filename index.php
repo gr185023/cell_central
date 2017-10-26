@@ -69,7 +69,6 @@
                                         <select name="city" class="browser-default">
                                             <option value="0" selected>Los Angeles</option>
                                         </select>
-                                        <input type="checkbox" class="filled-in checkbox-red" id="addPhone" required/>
                                     </div>
                                     <div class="col s12">
                                         <label>Get a SIM</label>
@@ -98,7 +97,7 @@
                                                         <label class="oneEm" for="android1Select">Android</label>
                                                     </span>
                                                     <input type="checkbox" class="filled-in checkbox-red" id="phone1Box"/>
-                                                    <label for="phone1Box">&nbsp;</label>
+                                                    <label class="phoneBox" for="phone1Box">&nbsp;</label>
                                                 </div>
                                                 <div class="collapsible-body">
                                                     <span>
@@ -109,7 +108,7 @@
                                                         <label class="oneEm" for="android2Select">Android</label>
                                                     </span>
                                                     <input type="checkbox" class="filled-in checkbox-red" id="phone2Box"/>
-                                                    <label for="phone2Box">&nbsp;</label>
+                                                    <label class="phoneBox" for="phone2Box">&nbsp;</label>
                                                 </div>
                                             </li>
                                         </ul>
@@ -127,7 +126,10 @@
                                     </div>   -->     
                                     <div class="col s12">
                                         <label for="pickupDate" class="active">Rental Dates</label>
-                                        <input type="text" name="pickupDate" value="" id="pickupDate" class="browser-default pickupDate" required/>
+                                        <div class="inline-flex">
+                                            <input type="text" name="pickupDate" value="" id="pickupDate" class="browser-default pickupDate" required/>
+                                            <input type="text" name="toDate" value="" id="toDate" class="browser-default pickupDate" required/>
+                                        </div>
                                     </div>
                                     <div class="book-button">
                                         <button  type="button" class="font-medium waves-effect btn waves-light red accent-4 block animated bouncein delay-6"> 
@@ -167,8 +169,9 @@
                     </div>
                     <!-- end of toolbar -->
                     <div class="booking-container">
-                        <h2 class="toppest-title">Booking Information</h2>
-
+                        <div class="cheaders">
+                            <h2 class="toppest-title">Booking Information</h2>
+                        </div>
                         <div class="flexes">
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp">
@@ -185,7 +188,7 @@
                         </div>
                         <div class="flexes">
                             <div class="flex1">
-                                <div class="input-field input-td col s12">
+                                <div class="input-field animated fadeInUp">
                                     <select name="ageRange" required>
                                         <option value="0" selected>46+</option>
                                         <option value="1">36-45</option>
@@ -196,7 +199,7 @@
                                 </div>
                             </div>
                             <div class="flex1">
-                                <div class="input-field input-td col s12">
+                                <div class="input-field animated fadeInUp">
                                     <select name ="nationality" required>
                                         <option value="" selected>- select one -</option>
                                         <option value="AF">Afghanistan</option>
@@ -454,8 +457,11 @@
                             </div>  
                         </div>
 
-                        <h4 class="headers padding-left-default">U.S. Address</h4>
-
+                        <div class="cheaders">
+                            <h4>U.S. Mailing Address</h4>
+                            <span class="cdescription">Please make sure you input the correct mailing address. We will send the 
+                                merchandise to this address.</span>
+                        </div>
                         <div class="flexes">
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
@@ -485,14 +491,14 @@
                                     <label for="stateAddress">State*</label>
                                 </div>
                             </div>
-                            <div class="flex1 padding-top-8">
+                            <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
                                     <input id="zipCode" name="zipCode" type="text" class="validate" required/>
                                     <label for="zipCode">Zip Code</label>
                                 </div>
                             </div>
-                            <div class="flex1 padding-top-8">
-                                <div class="input-field input-td animated fadeInUp delay-4">
+                            <div class="flex1">
+                                <div class="input-field animated fadeInUp delay-4">
                                     <input id="countryAddress" name="countryAddress" type="text" class="validate" 
                                         value="United States" required/>
                                     <label for="countryAddress" class="active">Country</label>

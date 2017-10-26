@@ -274,6 +274,19 @@ i {
   color: #272727;
 }
 
+.city-booking-container label {
+  color: #ffffff;
+}
+
+.city-booking-container .col {
+  line-height: 1.618;
+}
+
+.city-booking-container select,
+.city-booking-container .inline-flex {
+  width: 93%;
+}
+
 .addphone {
   margin: auto;
 }
@@ -282,7 +295,7 @@ i {
   padding-left: 10px;
 }
 
-.checkbox-red + label {
+.checkbox-red + .phoneBox {
   float: right;
   margin-top: 4px;
 }
@@ -297,18 +310,6 @@ i {
   text-justify: inter-word;
   text-align: justify;
   line-height: 1.2em;
-}
-
-.city-booking-container label {
-  color: #ffffff;
-}
-
-.city-booking-container .col {
-  line-height: 1.618;
-}
-
-.city-booking-container select {
-  width: 93%;
 }
 
 .open-right, .open-left, .summary-slide-down {
@@ -337,9 +338,7 @@ i {
 }
 
 .toppest-title {
-    padding-top: 96px;
-    padding-left: 0.5em;
-    padding-bottom: 16px;
+    padding-top: 60px;
 }
 
 .pickupDate {
@@ -377,6 +376,10 @@ i {
   -webkit-flex: 4;
     flex: 4;
     display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
 }
 
 .font-medium {
@@ -497,18 +500,24 @@ i {
 
 .input-field label.active,
 .input-td label.active {
-    font-size: 1.618rem;
+    font-size: 2rem;
     left: 0;
+    top: 0;
 }
 
 label {
     font-size: 1.618rem;
 }
 
-.headers {
-    padding-left: 0.5em;
+.cheaders {
+    padding-left: 1.4em;
     padding-top: 32px;
     padding-bottom: 16px;
+    padding-right: 1.4em;
+}
+
+.cdescription {
+  color: #2A2C2B;
 }
 
 textarea.materialize-textarea {
@@ -709,6 +718,10 @@ textarea.materialize-textarea {
   line-height: 1.6;
   padding-bottom: 20px;
 }
+
+/* Date range picker */
+.date-picker-wrapper.date-range-picker19 .day.first-date-selected { background-color: red !important; }
+.date-picker-wrapper.date-range-picker19 .day.last-date-selected { background-color: orange !important; }
 
 
 /* ==========================================================================
