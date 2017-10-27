@@ -42,6 +42,78 @@ $('.open-left').sideNav({ // Trigger id
     draggable: true 
 });
 
+$('#simCount').change(function() {
+    $('#simAccordion').removeClass("hidden");
+
+    var simCount = parseInt($(this).val());
+
+    $('#simListAccordion > .collapsible-body').each(function () { 
+        if(simCount > 0) {
+            $(this).slideDown("swing");
+            simCount--;
+        }
+        else {
+            $(this).slideUp("swing");
+        }
+    });
+});
+
+$('#phone1Box').change(function() {
+
+    if (this.checked) { 
+        $('#iphone1Select').removeAttr("disabled");
+        $('#android1Select').removeAttr("disabled");
+    }
+    else {
+        $('#iphone1Select').prop("disabled", "true");
+        $('#android1Select').prop("disabled", "true");
+    }
+});
+
+$('#phone2Box').change(function() {
+    if (this.checked) { 
+        $('#iphone2Select').removeAttr("disabled");
+        $('#android2Select').removeAttr("disabled");
+    }
+    else {
+        $('#iphone2Select').prop("disabled", "true");
+        $('#android2Select').prop("disabled", "true");
+    }
+});
+
+$('#phone3Box').change(function() {
+    if (this.checked) { 
+        $('#iphone3Select').removeAttr("disabled");
+        $('#android3Select').removeAttr("disabled");
+    }
+    else {
+        $('#iphone3Select').prop("disabled", "true");
+        $('#android3Select').prop("disabled", "true");
+    }
+});
+
+$('#phone4Box').change(function() {
+    if (this.checked) { 
+        $('#iphone4Select').removeAttr("disabled");
+        $('#android4Select').removeAttr("disabled");
+    }
+    else {
+        $('#iphone4Select').prop("disabled", "true");
+        $('#android4Select').prop("disabled", "true");
+    }
+});
+
+$('#phone5Box').change(function() {
+    if (this.checked) { 
+        $('#iphone5Select').removeAttr("disabled");
+        $('#android5Select').removeAttr("disabled");
+    }
+    else {
+        $('#iphone5Select').prop("disabled", "true");
+        $('#android5Select').prop("disabled", "true");
+    }
+});
+
 $.log = function(message) {
   var $logger = $("#logger");
   $logger.html($logger.html() + "\n * " + message );
@@ -101,7 +173,7 @@ function smoothScrollToTop() {
 }
 
 $(document).ready(function() {
-    $('.collapsible').collapsible();
+    $('#simAccordion').collapsible('open', 0);
     $('#form-container').hide();
     $('select').material_select();
     var top = $(window).scrollTop()+$(window).height();

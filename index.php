@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="col s12">
                                         <label>Get a SIM</label>
-                                        <select id="vanCount" name="vanCount" class="browser-default">
+                                        <select id="simCount" name="simCount" class="browser-default">
                                             <option selected disabled>-- Select quantity --</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -82,11 +82,10 @@
                                         </select>
                                     </div>
                                     <div class="col s12">
-                                        <ul class="collapsible" data-collapsible="accordion">
-                                            <li>
+                                        <ul id="simAccordion" class="hidden">
+                                            <li id="simListAccordion">
                                                 <div class="collapsible-header">
                                                     <label class="oneEm addphone" for="phone1Box">Add Phone for SIM</label>
-                                                    <i class="material-icons right">add</i>
                                                 </div>
                                                 <div class="collapsible-body">
                                                     <span>
@@ -96,7 +95,7 @@
                                                         <input class="radio-red" name="phone1Group" type="radio" id="android1Select" value="androidSelect"/>
                                                         <label class="oneEm" for="android1Select">Android</label>
                                                     </span>
-                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone1Box"/>
+                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone1Box" checked/>
                                                     <label class="phoneBox" for="phone1Box">&nbsp;</label>
                                                 </div>
                                                 <div class="collapsible-body">
@@ -107,8 +106,41 @@
                                                         <input class="radio-red" name="phone2Group" type="radio" id="android2Select" value="androidSelect"/>
                                                         <label class="oneEm" for="android2Select">Android</label>
                                                     </span>
-                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone2Box"/>
+                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone2Box" checked/>
                                                     <label class="phoneBox" for="phone2Box">&nbsp;</label>
+                                                </div>
+                                                <div class="collapsible-body">
+                                                    <span>
+                                                        <i class="material-icons">phone_iphone</i>
+                                                        <input class="radio-red" name="phone3Group" type="radio" id="iphone3Select" value="iphoneSelect" checked />
+                                                        <label class="oneEm" for="iphone3Select">iPhone</label>
+                                                        <input class="radio-red" name="phone3Group" type="radio" id="android3Select" value="androidSelect"/>
+                                                        <label class="oneEm" for="android3Select">Android</label>
+                                                    </span>
+                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone3Box" checked/>
+                                                    <label class="phoneBox" for="phone3Box">&nbsp;</label>
+                                                </div>
+                                                <div class="collapsible-body">
+                                                    <span>
+                                                        <i class="material-icons">phone_iphone</i>
+                                                        <input class="radio-red" name="phone4Group" type="radio" id="iphone4Select" value="iphoneSelect" checked />
+                                                        <label class="oneEm" for="iphone4Select">iPhone</label>
+                                                        <input class="radio-red" name="phone4Group" type="radio" id="android4Select" value="androidSelect"/>
+                                                        <label class="oneEm" for="android4Select">Android</label>
+                                                    </span>
+                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone4Box" checked/>
+                                                    <label class="phoneBox" for="phone4Box">&nbsp;</label>
+                                                </div>
+                                                <div class="collapsible-body">
+                                                    <span>
+                                                        <i class="material-icons">phone_iphone</i>
+                                                        <input class="radio-red" name="phone5Group" type="radio" id="iphone5Select" value="iphoneSelect" checked />
+                                                        <label class="oneEm" for="iphone5Select">iPhone</label>
+                                                        <input class="radio-red" name="phone5Group" type="radio" id="android5Select" value="androidSelect"/>
+                                                        <label class="oneEm" for="android5Select">Android</label>
+                                                    </span>
+                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone5Box" checked/>
+                                                    <label class="phoneBox" for="phone5Box">&nbsp;</label>
                                                 </div>
                                             </li>
                                         </ul>
@@ -471,7 +503,7 @@
                             </div>
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="email" name="email" type="text" class="validate" required/>
+                                    <input id="email" name="email" type="text"/>
                                     <label for="email">Address 2</label>
                                 </div>
                             </div>
@@ -548,7 +580,7 @@
                                 </ul>
                                 <div class="flex1">
                                     <img id="bd-van-img" src="img/innova.png">Van</img>
-                                    <button id="bdVanCount" type="button" class="btn-flat grey lighten-2">1</button>
+                                    <button id="bdsimCount" type="button" class="btn-flat grey lighten-2">1</button>
                                 </div>
                                 <div class="flex1 padding-top-12">
                                     <img id="bd-car-img" src="img/almera.png">Car</img>
