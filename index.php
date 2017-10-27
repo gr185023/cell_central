@@ -1,3 +1,8 @@
+<?php 
+session_start();
+$_SESSION['cc']= 1;
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -144,23 +149,12 @@
                                                 </div>
                                             </li>
                                         </ul>
-                                    </div>
-                                    <!-- <div class="col s12">
-                                        <label>Get a Phone</label>
-                                        <select id="sedanCount" name="sedanCount" class="browser-default">
-                                            <option value="0" selected>0</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                    </div>   -->     
+                                    </div>   
                                     <div class="col s12">
                                         <label for="pickupDate" class="active">Rental Dates</label>
                                         <div class="inline-flex">
-                                            <input type="text" name="pickupDate" value="" id="pickupDate" class="browser-default pickupDate" required/>
-                                            <input type="text" name="toDate" value="" id="toDate" class="browser-default pickupDate" required/>
+                                            <input type="text" name="rentDate" value="" id="pickupDate" class="browser-default pickupDate" required/>
+                                            <input type="text" name="returnDate" value="" id="toDate" class="browser-default pickupDate" required/>
                                         </div>
                                     </div>
                                     <div class="book-button">
@@ -497,14 +491,14 @@
                         <div class="flexes">
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="contact" name="contact" type="text" class="validate" required/>
-                                    <label for="contact">Address 1*</label>
+                                    <input id="address1" name="address1" type="text" class="validate" required/>
+                                    <label for="address1">Address 1*</label>
                                 </div>
                             </div>
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="email" name="email" type="text"/>
-                                    <label for="email">Address 2</label>
+                                    <input id="address2" name="address2" type="text"/>
+                                    <label for="address2">Address 2</label>
                                 </div>
                             </div>
                         </div>
@@ -512,82 +506,31 @@
                         <div class="flexes">
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="cityAddress" name="cityAddress" type="text" class="validate" required/>
+                                    <input id="cityAddress" name="cityMail" type="text" class="validate" required/>
                                     <label for="cityAddress">City*</label>
                                 </div>
                             </div>
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="stateAddress" name="stateAddress" type="text" class="validate" 
+                                    <input id="stateAddress" name="stateMail" type="text" class="validate" 
                                         value="California" required/>
                                     <label for="stateAddress">State*</label>
                                 </div>
                             </div>
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="zipCode" name="zipCode" type="text" class="validate" required/>
+                                    <input id="zipCode" name="zipcodeMail" type="text" class="validate" required/>
                                     <label for="zipCode">Zip Code</label>
                                 </div>
                             </div>
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-4">
-                                    <input id="countryAddress" name="countryAddress" type="text" class="validate" 
+                                    <input id="countryAddress" name="countryMail" type="text" class="validate" 
                                         value="United States" required/>
                                     <label for="countryAddress" class="active">Country</label>
                                 </div>  
                             </div>
                         </div>
-
-                        <!-- <div class="flexes">
-                            <div class="flex1">
-                                <div class="input-td animated fadeInUp delay-4">
-                                    <label>Pickup Location*</label>
-                                    <input id="pickupLocation" name="pickupLocation" class="controls" type="text" placeholder="Type location here" required/>
-                                    <div id="pickup_map"></div>
-                                </div>
-                                <div class="input-field input-td animated fadeInUp delay-5">
-                                    <textarea class="materialize-textarea" id="pickupInstruction" name="pickupInstruction" form="tourForm"></textarea> 
-                                    <label for="instruct1">Additional instructions</label>
-                                </div>
-                            </div>
-                            <div class="flex1">
-                                <div class="input-td animated fadeInUp delay-4">
-                                    <label>Main Destination*</label>
-                                    <input id="destination" name="destination" class="controls" type="text" placeholder="Type location here" required/>
-                                    <div id="destination_map"></div>
-                                </div>
-                                <div class="input-field input-td animated fadeInUp delay-5">
-                                    <textarea class="materialize-textarea" id="destinationInstruction" name="destinationInstruction" form="tourForm"></textarea> 
-                                    <label for="instruct1">Additional instructions</label>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="flexes padding-vertical-10">
-                            <div class="breakdown z-depth-1">
-                                <ul class="flex1">
-                                    <li><label id="bd-city"><b>Cebu City</b></label></li>
-                                    <li><label id="bd-tourType">One-way</label></li>
-                                    <li><label id="bd-vanPrice">Php 0.00 (Select pick up and destination)</label></li>
-                                    <li><label id="bd-sedanPrice"></label></li>
-                                    <li><label id="bd-subtotal"></label></li>
-                                    <li>
-                                        <input class="radio-blue" name="payGroup" type="radio" id="payTen" value="ten" checked />
-                                        <label class="payRadio" for="payTen">Pay 10%</label>
-                                        <input class="radio-blue" name="payGroup" type="radio" id="payFull" value="full"/>
-                                        <label class="payRadio" for="payFull">Pay Full</label>
-                                    </li>
-                                </ul>
-                                <div class="flex1">
-                                    <img id="bd-van-img" src="img/innova.png">Van</img>
-                                    <button id="bdsimCount" type="button" class="btn-flat grey lighten-2">1</button>
-                                </div>
-                                <div class="flex1 padding-top-12">
-                                    <img id="bd-car-img" src="img/almera.png">Car</img>
-                                    <button id="bdSedanCount" type="button" class="btn-flat grey lighten-2">0</button>
-                                </div>
-                            </div>
-                        </div>  -->
 
                         <div class="flexes">
                             <div class="termsAgree">
