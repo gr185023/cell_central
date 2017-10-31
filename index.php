@@ -195,8 +195,44 @@ $_SESSION['cc']= 1;
                     </div>
                     <!-- end of toolbar -->
                     <div class="booking-container">
+                        <div class="toppest-padding flexes">
+                            <div class="breakdown z-depth-1">
+                                <ul class="flex1">
+                                    <li><label id="bd-city"><b>Los Angeles</b></label></li>
+                                    <li>
+                                        <table>
+                                            <tr>
+                                                <td><label id="bd-sim">SIM</label></td>
+                                                <td><label>x2 = $29.99</label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label id="bd-iphone">iPhone</label></td>
+                                                <td><label>x1 = $4.99</label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label id="bd-android">Android</label></td>
+                                                <td><label>x1 = $4.99</label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label id="bd-subtotal"><b>Sub-total</b></label></td>
+                                                <td><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= $37.97</label></td>
+                                            </tr>
+                                        </table> 
+                                    </li>
+                                </ul>
+                                <div class="flex1">
+                                    <img id="bd-van-img" src="img/iphone.png">iPhone</img>
+                                    <button id="bdVanCount" type="button" class="btn-flat grey lighten-2">1</button>
+                                </div>
+                                <div class="flex1">
+                                    <img id="bd-car-img" src="img/android.png">Android</img>
+                                    <button id="bdSedanCount" type="button" class="btn-flat grey lighten-2">1</button>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="cheaders">
-                            <h2 class="toppest-title">Booking Information</h2>
+                            <h2>Booking Information</h2>
                         </div>
                         <div class="flexes">
                             <div class="flex1">
@@ -215,17 +251,12 @@ $_SESSION['cc']= 1;
                         <div class="flexes">
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp">
-                                    <select name="ageRange" required>
-                                        <option value="0" selected>46+</option>
-                                        <option value="1">36-45</option>
-                                        <option value="2">26-35</option>
-                                        <option value="3">18-25</option>
-                                    </select>
-                                    <label class="active">Age*</label>
+                                    <input id="email" name="email" type="email" class="validate" required/>
+                                    <label for="email">Email*</label>
                                 </div>
                             </div>
                             <div class="flex1">
-                                <div class="input-field animated fadeInUp">
+                                <div class="input-field animated fadeInUp margin-bottom-19">
                                     <select name ="nationality" required>
                                         <option value="" selected>- select one -</option>
                                         <option value="AF">Afghanistan</option>
@@ -512,15 +543,15 @@ $_SESSION['cc']= 1;
                             </div>
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="stateAddress" name="stateMail" type="text" class="validate" 
-                                        value="California" required/>
-                                    <label for="stateAddress">State*</label>
+                                    <input id="zipCode" name="zipcodeMail" type="text" class="validate" required/>
+                                    <label for="zipCode">Zip Code*</label>
                                 </div>
                             </div>
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="zipCode" name="zipcodeMail" type="text" class="validate" required/>
-                                    <label for="zipCode">Zip Code</label>
+                                    <input id="stateAddress" name="stateMail" type="text" class="validate" 
+                                        value="California" required/>
+                                    <label for="stateAddress">State*</label>
                                 </div>
                             </div>
                             <div class="flex1">

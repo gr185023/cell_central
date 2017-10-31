@@ -61,7 +61,6 @@ if(!isset($_SESSION['cc'])) {
     $email = db_quote("rmg@gmail.com"); //db_quote($_POST['email']); ///--
     $firstName = db_quote($_POST['firstName']);
     $lastName = db_quote($_POST['lastName']);
-    $ageRange = db_quote($_POST['ageRange']);
     $nationality = db_quote($_POST['nationality']);
     $address1 = db_quote($_POST['address1']);
     $address2 = db_quote($_POST['address2']);
@@ -77,9 +76,8 @@ if(!isset($_SESSION['cc'])) {
 
     ///-- LAST HERE
     // Insert the values into the database
-    $query = "INSERT INTO client (booking_number,booking_date,city,sim_count,sim_plan,ios_count,android_count,rent_date,return_date,email,first_name,last_name,age_range,nationality,address1,address2,city_mail,state_mail,zipcode_mail,country_mail,sub_total,rent_days) VALUES ('" . $bookingNumber . "','" . $bookingDate . "'," . $city . "," . $simCount . "," . $simPlan . "," . $iosCount . "," . $androidCount . "," . $rentDate . "," . $returnDate . "," . $email . "," . $firstName . "," . $lastName . "," . $ageRange . "," . $nationality . "," . $address1 . "," . $address2 . "," . $cityMail . "," . $stateMail . "," . $zipcodeMail . "," . $countryMail . "," . $subTotal . "," . $rentDays . ")";
+    $query = "INSERT INTO client (booking_number,booking_date,city,sim_count,sim_plan,ios_count,android_count,rent_date,return_date,email,first_name,last_name,nationality,address1,address2,city_mail,state_mail,zipcode_mail,country_mail,sub_total,rent_days) VALUES ('" . $bookingNumber . "','" . $bookingDate . "'," . $city . "," . $simCount . "," . $simPlan . "," . $iosCount . "," . $androidCount . "," . $rentDate . "," . $returnDate . "," . $email . "," . $firstName . "," . $lastName . "," . $nationality . "," . $address1 . "," . $address2 . "," . $cityMail . "," . $stateMail . "," . $zipcodeMail . "," . $countryMail . "," . $subTotal . "," . $rentDays . ")";
     
-    echo "Q::::" . $query;
     $result = db_query($query);
     if($result === false) {
         // Handle failure - log the error, notify administrator, etc.
