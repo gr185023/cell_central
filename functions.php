@@ -69,8 +69,9 @@ function db_escape_string($value) {
 
 function calculateEstimate($simCount, $iosCount, $androidCount, $rentDays) {
     $simPrice = 29.99; ///-- put in config?
-    $phonePrice = 4.99;
-    $subtotal = ($simCount * $simPrice) + (($iosCount + $androidCount) * $phonePrice) + $rentDays;
+    $iphonePrice = 3.99;
+    $androidPrice = 2.99;
+    $subtotal = ($simCount * $simPrice) + ((($iosCount * $iphonePrice) + ($androidCount * $androidPrice)) * $rentDays);
 
     return $subtotal;
 }

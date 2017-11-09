@@ -1,29 +1,31 @@
 
 "use strict";
 
-var today = new Date();
-var datePicker = {
-    selectForward: true,
-    startDate: today,
-    inline: false,
-    separator : ' to ',
-    getValue: function()
-    {
-        if ($('#pickupDate').val() && $('#toDate').val() )
-            return $('#pickupDate').val() + ' to ' + $('#toDate').val();
-        else
-            return '';
-    },
-    setValue: function(s,s1,s2)
-    {
-        $('#pickupDate').val(s1);
-        $('#toDate').val(s2);
-    },
-    extraClass: 'date-range-picker19'
-};
+if($('#pickupDate').length) {
+    var today = new Date();
+    var datePicker = {
+        selectForward: true,
+        startDate: today,
+        inline: false,
+        separator : ' to ',
+        getValue: function()
+        {
+            if ($('#pickupDate').val() && $('#toDate').val() )
+                return $('#pickupDate').val() + ' to ' + $('#toDate').val();
+            else
+                return '';
+        },
+        setValue: function(s,s1,s2)
+        {
+            $('#pickupDate').val(s1);
+            $('#toDate').val(s2);
+        },
+        extraClass: 'date-range-picker19'
+    };
 
-$('#pickupDate').dateRangePicker(datePicker);
-$('#toDate').dateRangePicker(datePicker);
+    $('#pickupDate').dateRangePicker(datePicker);
+    $('#toDate').dateRangePicker(datePicker);
+}
 
 // Right Sidebar
 var infoRatio = $(window).width() * 0.63;
@@ -147,11 +149,6 @@ function removeHash(){
 *
 */
 function smoothScrollTo(elementSelector) {
-    
-    // var topOffset = $(elementSelector).offset().top;
-    // $('body, html').animate({
-    //         scrollTop: topOffset
-    //     }, speed,removeHash);
     var speed = 618;
 
     $('#form-container').show();
@@ -172,6 +169,117 @@ function smoothScrollToTop() {
     window.scrollTo(0,0);
 }
 
+function checkPhone() {
+    var tempSimVal = 29.99;
+    var simCount = parseInt($('#simCount').find(":selected").val());
+    var tempSimTotal = simCount * tempSimVal;
+    $('#bd-sim').text("x" + simCount + " = $" + tempSimTotal.toFixed(2)); 
+
+    var phoneChecked = false;
+    var iphoneCount = 0;
+    var androidCount = 0;
+    var lCount = 1;
+    if($("#phone1Box").prop('checked') == true && $('#phone1Box').parent().is(':visible')) {
+        phoneChecked = true;
+        if( $('input[name=phone1Group]:checked', '#tourForm').val() === "iphoneSelect") { iphoneCount++; }
+        else { androidCount++; }
+    }
+    lCount++;
+    if(lCount <= simCount && $("#phone2Box").prop('checked') == true && $('#phone2Box').parent().is(':visible')) {
+        phoneChecked = true;
+        if( $('input[name=phone2Group]:checked', '#tourForm').val() === "iphoneSelect") { iphoneCount++; }
+        else { androidCount++; }
+    }
+    lCount++;
+    if(lCount <= simCount && $("#phone3Box").prop('checked') == true && $('#phone3Box').parent().is(':visible')) {
+        phoneChecked = true;
+        if( $('input[name=phone3Group]:checked', '#tourForm').val() === "iphoneSelect") { iphoneCount++; }
+        else { androidCount++; }
+    }
+    lCount++;
+    if(lCount <= simCount && $("#phone4Box").prop('checked') == true && $('#phone4Box').parent().is(':visible')) {
+        phoneChecked = true;
+        if( $('input[name=phone4Group]:checked', '#tourForm').val() === "iphoneSelect") { iphoneCount++; }
+        else { androidCount++; }
+    }
+    lCount++;
+    if(lCount <= simCount && $("#phone5Box").prop('checked') == true && $('#phone5Box').parent().is(':visible')) { 
+        phoneChecked = true;
+        if( $('input[name=phone5Group]:checked', '#tourForm').val() === "iphoneSelect") { iphoneCount++; }
+        else { androidCount++; }
+    }
+
+    var tempiPhoneVal = 3.99;
+    var tempiPhoneTotal = iphoneCount * tempiPhoneVal;
+    $('#bd-iphone').text("x" + iphoneCount + " = $" + tempiPhoneTotal.toFixed(2));
+
+    var tempAndroidVal = 2.99;
+    var tempAndroidTotal = androidCount * tempAndroidVal;
+    $('#bd-android').text("x" + androidCount + " = $" + tempAndroidTotal.toFixed(2));
+
+    var tempSubtotal = tempAndroidTotal+tempiPhoneTotal;
+
+    if(phoneChecked) { 
+        $('#cRentalDates').removeClass('hidden');
+    }
+    else {
+        $('#cRentalDates').addClass('hidden');
+    }
+
+    return tempSubtotal;
+}
+
+function convertStringToDate(date) {
+    var dt = new Date(parseInt(date.substring(0, 3), 10),        // Year
+                  parseInt(date.substring(5, 7), 10), // Month 
+                  parseInt(date.substring(8), 10));  // Day
+    return dt;
+}
+
+$('input[name=phone1Group]:radio, input[name=phone2Group]:radio, input[name=phone3Group]:radio, input[name=phone4Group]:radio, input[name=phone5Group]:radio').change(checkPhone);
+
+///////////// Input handling START ////////////////
+
+$('#phone1Box, #phone2Box, #phone3Box, #phone4Box, #phone5Box').on('click', checkPhone);
+
+$('#simCount').blur(function() 
+{
+    if( $('#simCount').find(":selected").val() !== '0') {
+        $(this).removeClass('warning');
+    }
+    else {
+        $(this).addClass('warning');
+    }
+});
+
+$('#simCount').change(checkPhone);
+
+$('#pickupDate').blur(function()
+{
+    if( $(this).val().length === 0 ) {
+        $(this).addClass('warning');
+        $('#toDate').addClass('warning');
+    }
+    else {
+        $(this).removeClass('warning');
+        $('#toDate').removeClass('warning');
+    }
+});
+
+$('#toDate').blur(function()
+{
+    if( $(this).val().length === 0 ) {
+        $(this).addClass('warning');
+        $('#pickupDate').addClass('warning');
+    }
+    else{
+        $(this).removeClass('warning');
+        $('#pickupDate').removeClass('warning');
+    }
+});
+
+//////////////// Input handling END ////////////////
+
 $(document).ready(function() {
     $('#simAccordion').collapsible('open', 0);
     $('#form-container').hide();
@@ -181,8 +289,99 @@ $(document).ready(function() {
     // Click on the arrow will make the page scroll and hide the header image
     $('.book-button').on('click',function(e){
         e.preventDefault();
-        smoothScrollTo('#form-container');
+        if($('#simCount').find(":selected").val() !== '0' && 
+            (($('#pickupDate').is(':visible') && $('#pickupDate').val().length !== 0) ||
+                !$('#pickupDate').is(':visible'))) 
+        {
+            var phoneTotal = checkPhone();
+            var tempSimVal = 29.99;
+            var simCount = parseInt($('#simCount').find(":selected").val());
+            var simTotal = simCount * tempSimVal;
+            var subTotal = simTotal;
+            if( $('#pickupDate').is(':visible')) {
+                var pickupDateStr  = $('#pickupDate').val();
+                var toDateStr = $('#toDate').val();
+                var pickupDate = convertStringToDate(pickupDateStr);
+                var toDate = convertStringToDate(toDateStr);
+                var rentDays = ((toDate - pickupDate) / (1000*60*60*24) + 1);
+                $('#bd-rental-dates').text( $('#pickupDate').val() + " to " + $('#toDate').val() + " (" + rentDays + "d)");
+                $('#bd-rental-dates').removeClass('hidden');
+
+                subTotal = simTotal + (phoneTotal * rentDays);
+            }
+            else {
+                $('#bd-rental-dates').addClass('hidden');
+            }
+
+            $('#bd-subtotal').text(" = $" + subTotal.toFixed(2));
+            $('#pickupDate').removeClass('warning');
+            $('#toDate').removeClass('warning');
+            $('#simCount').removeClass('warning');
+            $('#cWarningMessage').addClass('hidden');
+            smoothScrollTo('#form-container');
+        }
+        else {
+            if( $('#pickupDate').val().length === 0 ) { $('#pickupDate').addClass('warning'); }
+            if( $('#toDate').val().length === 0 ) { $('#toDate').addClass('warning'); }
+            if($('#simCount').find(":selected").val() === '0') { $('#simCount').addClass('warning'); }
+            $('#cWarningMessage').removeClass('hidden');
+        }
     });
+
+    // $('.next-button').on('click', function(e) {
+    //     var cwarn = false;
+    //     if($('#firstName').val().length === 0) { 
+    //         $('#firstName').addClass('warning'); 
+    //         cwarn = true; 
+    //     }
+    //     else { $('#firstName').removeClass('warning'); }
+    //     if($('#lastName').val().length === 0) { 
+    //         $('#lastName').addClass('warning'); 
+    //         cwarn = true; 
+    //     }
+    //     else { $('#lastName').removeClass('warning'); }
+    //     if($('#email').val().length === 0) { 
+    //         $('#email').addClass('warning'); 
+    //         cwarn = true; 
+    //     }
+    //     else { $('#email').removeClass('warning'); }
+    //     if($('#nationality').find(":selected").val().length === 0) { 
+    //         $('.select-dropdown').addClass('warning'); 
+    //         cwarn = true; 
+    //     }
+    //     else { $('.select-dropdown').removeClass('warning');  }
+    //     if($('#address1').val().length === 0) { 
+    //         $('#address1').addClass('warning'); 
+    //         cwarn = true; 
+    //     }
+    //     else { $('#address1').removeClass('warning');  }
+    //     if($('#cityAddress').val().length === 0) { 
+    //         $('#cityAddress').addClass('warning'); 
+    //         cwarn = true; 
+    //     }
+    //     else { $('#cityAddress').removeClass('warning');  }
+    //     if($('#zipCode').val().length === 0) { 
+    //         $('#zipCode').addClass('warning'); 
+    //         cwarn = true; 
+    //     }
+    //     else { $('#zipCode').removeClass('warning'); }
+    //     if($('#stateAddress').val().length === 0) { 
+    //         $('#stateAddress').addClass('warning'); 
+    //         cwarn = true; 
+    //     }
+    //     else { $('#stateAddress').removeClass('warning'); }
+    //     if($('#countryAddress').val().length === 0) { 
+    //         $('#countryAddress').addClass('warning'); 
+    //         cwarn = true; 
+    //     }
+    //     else { $('#countryAddress').removeClass('warning'); }
+    //     if($('#agreeBox').val().length === 0) { 
+    //         $('#agreeBox').addClass('warning'); 
+    //         cwarn = true; 
+    //     }
+    //     else { $('#agreeBox').addClass('warning');  }
+    //     if(cwarn) { $('#nextWarningMessage').removeClass('hidden'); }
+    // });
 
     $('select').material_select();
 });

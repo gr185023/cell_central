@@ -131,16 +131,15 @@ body, input, button {
 h1, h2, h3, h4, h5, h6 { 
     font-family: 'Dosis', cursive;
     margin-top: 0;
-    margin-bottom: 2rem;  
     color: #272727;  
 }
 
 h1 { font-size: 3.818rem; line-height: 3rem; }
-h2 { font-size: 3.618rem; line-height: 3rem; }
-h3 { font-size: 3.416rem; line-height: 2.2rem; }
-h4 { font-size: 3.218rem; line-height: 2.2rem; }
-h5 { font-size: 3.018rem; line-height: 2rem; }
-h6 { font-size: 2.818rem; line-height: 2rem; }
+h2 { font-size: 3.218rem; line-height: 3rem; }
+h3 { font-size: 3.016rem; line-height: 2.2rem; }
+h4 { font-size: 2.818rem; line-height: 2.2rem; }
+h5 { font-size: 2.618rem; line-height: 2rem; }
+h6 { font-size: 2.418rem; line-height: 2rem; }
 
 a {
   color: #DC3522;
@@ -402,18 +401,31 @@ label {
 
 .breakdown td {
   padding: 0 5px;
+  text-align: right;
+}
 
+.breakdown th {
+  padding: 0;
+  text-align: center;
 }
 
 .breakdown button {
   font-size: 1.6rem;
 }
 
+.next-button a {
+  font-size: 1.6em;
+}
+
 #bd-sim,
 #bd-iphone,
 #bd-android,
 #bd-subtotal {
-  float: right;
+  float: left;
+}
+
+#bd-subtotal {
+  margin-left: 22px;
 }
 
 .breakdown .flex1 {
@@ -426,6 +438,11 @@ label {
 
 .font-large {
   font-size: 2.6rem !important;
+}
+
+.toppest-title {
+  padding: 96px;
+  padding-bottom: 16px;
 }
 
 .toppest-padding {
@@ -446,6 +463,10 @@ label {
 
 .padding-top-12 {
   padding-top: 12px;
+}
+
+.padding-left-36 {
+  padding-left: 36px !important; 
 }
 
 .padding-vertical-10 {
@@ -732,10 +753,13 @@ textarea.materialize-textarea {
   padding-bottom: 20px;
 }
 
+.warning { 
+  border-color: red !important;
+}
+
 /* Date range picker */
 .date-picker-wrapper.date-range-picker19 .day.first-date-selected { background-color: green !important; }
 .date-picker-wrapper.date-range-picker19 .day.last-date-selected { background-color: red !important; }
-
 
 /* ==========================================================================
    Helper classes

@@ -8,9 +8,8 @@ $_SESSION['cc']= 1;
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Cell Central - Top Cellphone Rental and SIM in Los Angeles</title>
-        <meta name="description" content="">
-        <meta name="description" content="Tour Transport - Your tour! your convenience!">
+        <title>Cell Central - Top Cellphone and SIM rental in Los Angeles</title>
+        <meta name="description" content="The #1 cellphone and SIM rental in Los Angeles, California">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
@@ -29,8 +28,7 @@ $_SESSION['cc']= 1;
         <link rel="fav icon" type="image/x-icon" href="favicon.ico?" />
 
         <!-- Icons -->
-        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
-
+        <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
 
         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
         <link rel="stylesheet" href="css/normalize.css">
@@ -78,7 +76,7 @@ $_SESSION['cc']= 1;
                                     <div class="col s12">
                                         <label>Get a SIM</label>
                                         <select id="simCount" name="simCount" class="browser-default">
-                                            <option selected disabled>-- Select quantity --</option>
+                                            <option value="0" selected disabled>-- Select quantity --</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -100,7 +98,7 @@ $_SESSION['cc']= 1;
                                                         <input class="radio-red" name="phone1Group" type="radio" id="android1Select" value="androidSelect"/>
                                                         <label class="oneEm" for="android1Select">Android</label>
                                                     </span>
-                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone1Box" checked/>
+                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone1Box" name="phone1Box" checked/>
                                                     <label class="phoneBox" for="phone1Box">&nbsp;</label>
                                                 </div>
                                                 <div class="collapsible-body">
@@ -111,7 +109,7 @@ $_SESSION['cc']= 1;
                                                         <input class="radio-red" name="phone2Group" type="radio" id="android2Select" value="androidSelect"/>
                                                         <label class="oneEm" for="android2Select">Android</label>
                                                     </span>
-                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone2Box" checked/>
+                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone2Box" name="phone2Box" checked/>
                                                     <label class="phoneBox" for="phone2Box">&nbsp;</label>
                                                 </div>
                                                 <div class="collapsible-body">
@@ -122,7 +120,7 @@ $_SESSION['cc']= 1;
                                                         <input class="radio-red" name="phone3Group" type="radio" id="android3Select" value="androidSelect"/>
                                                         <label class="oneEm" for="android3Select">Android</label>
                                                     </span>
-                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone3Box" checked/>
+                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone3Box" name="phone3Box" checked/>
                                                     <label class="phoneBox" for="phone3Box">&nbsp;</label>
                                                 </div>
                                                 <div class="collapsible-body">
@@ -133,7 +131,7 @@ $_SESSION['cc']= 1;
                                                         <input class="radio-red" name="phone4Group" type="radio" id="android4Select" value="androidSelect"/>
                                                         <label class="oneEm" for="android4Select">Android</label>
                                                     </span>
-                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone4Box" checked/>
+                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone4Box" name="phone4Box" checked/>
                                                     <label class="phoneBox" for="phone4Box">&nbsp;</label>
                                                 </div>
                                                 <div class="collapsible-body">
@@ -144,22 +142,23 @@ $_SESSION['cc']= 1;
                                                         <input class="radio-red" name="phone5Group" type="radio" id="android5Select" value="androidSelect"/>
                                                         <label class="oneEm" for="android5Select">Android</label>
                                                     </span>
-                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone5Box" checked/>
+                                                    <input type="checkbox" class="filled-in checkbox-red" id="phone5Box" name="phone5Box" checked/>
                                                     <label class="phoneBox" for="phone5Box">&nbsp;</label>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>   
-                                    <div class="col s12">
+                                    <div id="cRentalDates" class="col s12 hidden">
                                         <label for="pickupDate" class="active">Rental Dates</label>
                                         <div class="inline-flex">
-                                            <input type="text" name="rentDate" value="" id="pickupDate" class="browser-default pickupDate" required/>
-                                            <input type="text" name="returnDate" value="" id="toDate" class="browser-default pickupDate" required/>
+                                            <input type="text" name="rentDate" value="" id="pickupDate" class="browser-default pickupDate"/>
+                                            <input type="text" name="returnDate" value="" id="toDate" class="browser-default pickupDate"/>
                                         </div>
                                     </div>
                                     <div class="book-button">
+                                        <p id="cWarningMessage" class="red-text hidden">Please fill-up all fields in red.<p>
                                         <button  type="button" class="font-medium waves-effect btn waves-light red accent-4 block animated bouncein delay-6"> 
-                                            BOOK NOW<i class="material-icons right">location_on</i>
+                                            GET IT!
                                         </button>
                                     </div>
                                 </div>
@@ -202,20 +201,23 @@ $_SESSION['cc']= 1;
                                     <li>
                                         <table>
                                             <tr>
-                                                <td><label id="bd-sim">SIM</label></td>
-                                                <td><label>x2 = $29.99</label></td>
+                                                <td><label>SIM</label></td>
+                                                <td><label id="bd-sim">x1 = $29.99</label></td>
                                             </tr>
                                             <tr>
-                                                <td><label id="bd-iphone">iPhone</label></td>
-                                                <td><label>x1 = $4.99</label></td>
+                                                <th colspan="2"><label id="bd-rental-dates" class="hidden"> </label></th>
                                             </tr>
                                             <tr>
-                                                <td><label id="bd-android">Android</label></td>
-                                                <td><label>x1 = $4.99</label></td>
+                                                <td><label>iPhone</label></td>
+                                                <td><label id="bd-iphone">x0 = $0.00</label></td>
                                             </tr>
                                             <tr>
-                                                <td><label id="bd-subtotal"><b>Sub-total</b></label></td>
-                                                <td><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= $37.97</label></td>
+                                                <td><label>Android</label></td>
+                                                <td><label id="bd-android">x0 = $0.00</label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label><b>Sub-total</b></label></td>
+                                                <td><label id="bd-subtotal">= $29.99</label></td>
                                             </tr>
                                         </table> 
                                     </li>
@@ -232,7 +234,7 @@ $_SESSION['cc']= 1;
                         </div>
 
                         <div class="cheaders">
-                            <h2>Booking Information</h2>
+                            <h4>Booking Information</h4>
                         </div>
                         <div class="flexes">
                             <div class="flex1">
@@ -257,7 +259,7 @@ $_SESSION['cc']= 1;
                             </div>
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp margin-bottom-19">
-                                    <select name ="nationality" required>
+                                    <select id="nationality" name="nationality" required>
                                         <option value="" selected>- select one -</option>
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Åland Islands</option>
@@ -571,6 +573,7 @@ $_SESSION['cc']= 1;
                         </div>
 
                         <div class="next-button">
+                            <p id="nextWarningMessage" class="red-text hidden">Please fill-up all fields in red.<p>
                             <input class="font-large waves-effect waves-light btn-large red accent-4 block animated bouncein delay-6" type="submit" value="GO">
                         </div>
 
@@ -628,7 +631,6 @@ $_SESSION['cc']= 1;
         <script src="js/vendor/materialize.min.js"></script>
         <script src="js/main.js"></script>
     
-
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
