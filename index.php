@@ -8,7 +8,7 @@ $_SESSION['cc']= 1;
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Cell Central - Top Cellphone and SIM rental in Los Angeles</title>
+        <title>Cellcom Central - Top Cellphone and SIM rental in Los Angeles</title>
         <meta name="description" content="The #1 cellphone and SIM rental in Los Angeles, California">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
@@ -56,7 +56,7 @@ $_SESSION['cc']= 1;
                             <div class="open-left" data-activates="left-sidebar-slide-out">
                               <i class="ion-android-menu"></i>
                             </div>
-                            <h1 class="ctitle">Cell Central</h1>
+                            <h1 class="ctitle">Cellcom Central</h1>
                             <div class="open-right" data-activates="right-sidebar-slide-out">
                               <i class="ion-information-circled"></i>
                             </div>
@@ -187,7 +187,7 @@ $_SESSION['cc']= 1;
                         <div class="open-left" data-activates="left-sidebar-slide-out">
                             <i class="ion-android-menu"></i>
                         </div>
-                        <h1 class="ctitle">Cell Central</h1>
+                        <h1 class="ctitle">Cellcom Central</h1>
                         <div class="summary-slide-down" onclick="smoothScrollToTop()">
                             <i class="ion-chevron-down"></i>
                         </div>
