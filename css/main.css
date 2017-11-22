@@ -413,7 +413,8 @@ label {
   font-size: 1.6rem;
 }
 
-.next-button a {
+.next-button a,
+.send-button i {
   font-size: 1.6em;
 }
 
