@@ -38,7 +38,7 @@ $('.open-right').sideNav({ // Trigger id
 
 // Left Sidebar
 $('.open-left').sideNav({ // Trigger id
-    menuWidth: 240, // Default is 240
+    menuWidth: 260, // Default is 240
     edge: 'left', // Choose the horizontal origin
     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
     draggable: true 
