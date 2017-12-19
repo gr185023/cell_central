@@ -54,7 +54,8 @@ $_SESSION['cc']= 1;
                         <!-- TOOLBAR COVER -->
                         <div id="toolbar-cover">
                             <div class="open-left" data-activates="left-sidebar-slide-out">
-                              <i class="ion-android-menu"></i>
+                              <img class="clogo" alt="menu" src="cell-logo.png"/> <!-- ///-- change url -->
+                              <!-- <i class="ion-android-menu"></i> -->
                             </div>
                             <h1 class="ctitle">Cellcom Central</h1>
                             <div class="open-right" data-activates="right-sidebar-slide-out">
@@ -185,7 +186,8 @@ $_SESSION['cc']= 1;
                     <!-- toolbar -->
                     <div id="toolbar" class="primary-bg-color z-depth-1">
                         <div class="open-left" data-activates="left-sidebar-slide-out">
-                            <i class="ion-android-menu"></i>
+                          <img class="clogo" alt="menu" src="cell-logo.png"/> <!-- ///-- change url -->
+                          <!-- <i class="ion-android-menu"></i> -->
                         </div>
                         <h1 class="ctitle">Cellcom Central</h1>
                         <div class="summary-slide-down" onclick="smoothScrollToTop()">

@@ -213,6 +213,13 @@ label {
     font-size: 32px;
 }
 
+.clogo {
+    width: 32px;
+    height: 33px;
+    margin: 13px;
+
+}
+
 #left-sidebar-slide-out .close-sidebar {
     position: relative;
     text-align: center;
