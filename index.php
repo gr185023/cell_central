@@ -55,7 +55,6 @@ $_SESSION['cc']= 1;
                         <div id="toolbar-cover">
                             <div class="open-left" data-activates="left-sidebar-slide-out">
                               <img class="clogo" alt="menu" src="cell-logo.png"/> <!-- ///-- change url -->
-                              <!-- <i class="ion-android-menu"></i> -->
                             </div>
                             <h1 class="ctitle">Cellcom Central</h1>
                             <div class="open-right" data-activates="right-sidebar-slide-out">
@@ -604,10 +603,13 @@ $_SESSION['cc']= 1;
               <ul id="left-sidebar-slide-out" class="side-nav collapsible">
                 <div class="sidebar-toppest"></div>
                 <li>
-                  <a href="#" class="navi waves-effect"><i class="ion-android-home"></i> Rent a Phone</a>
+                    <a href="#" class="navi waves-effect"><i class="material-icons">phone_android</i> Rentals</a>
                 </li>
                 <li>
-                  <a href="contact.html" class="navi waves-effect"><i class="ion-bookmark"></i> Contact Us</a>
+                    <a href="about.html" class="navi waves-effect"><i class="material-icons">work</i> About</a>
+                </li>
+                <li>
+                    <a href="contact.html" class="navi waves-effect"><i class="material-icons">mail</i> Contact Us</a>
                 </li>
               </ul>
               <!-- End of Left Sidebar -->  

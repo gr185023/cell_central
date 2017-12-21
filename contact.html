@@ -50,7 +50,7 @@
       <!-- toolbar -->
       <div id="toolbar" class="primary-bg-color z-depth-1">
           <div class="open-left" data-activates="left-sidebar-slide-out">
-              <i class="ion-android-menu"></i>
+              <img class="clogo" alt="menu" src="cell-logo.png"/> <!-- ///-- change url -->
           </div>
           <h1 class="ctitle">Cellcom Central</h1>
           <div class="open-right-dummy">
@@ -60,44 +60,49 @@
 
       <!-- Page Contents -->
       <div class="page animated fadeinup">
-        <h3 class="toppest-title padding-left-default">Contact Us</h3>
 
         <!-- Form Inputs --> 
         <form action="javascript:void(0);" method="post">
           <div class="form-container padding-horizontal-20">
-            <p>
-                If you have any concerns or for cancellation please fill out the form below or email us at <a href="mailto:support@funtour.ph?subject=Contact%20Us">support@cellcomcentral.com</a>. You may also contact us at our local numbers.
-            </p>
-            <ul class="contact-numbers">
-              <li><i class="material-icons left small">phone_iphone</i>+63 927 31 66848</li>
-            </ul>
-            <div>
-              <div class="input-field animated fadeInUp">
-                <input id="ccname" name="ccname" type="text" class="validate" required>
-                <label for="ccname">Name*</label>
-              </div>
-            </div>
-            <div class="input-field animated fadeInUp delay-2">
-              <input id="email" name="email" type="email" class="validate" required>
-              <label for="email">Email*</label>
-            </div>
-            <div class="input-field animated fadeInUp delay-3">
-              <input id="telephone" name="telephone" type="text" class="validate">
-              <label for="telephone">Phone Number</label>
-            </div>
-            <div class="input-field animated fadeInUp delay-3">
-              <input id="bookingNumber" name="bookingNumber" type="text" class="validate">
-              <label for="bookingNumber">Booking Number</label>
-            </div>
+            <div class="info-content">
 
-            <div class="input-field animated fadeInUp delay-3">
-              <input id="subject" name="subject" type="text" class="validate" required>
-              <label for="subject">Subject*</label>
-            </div>
-            
-            <div class="input-field animated fadeInUp delay-3">
-              <textarea class="materialize-textarea" id="ccmessage" name="ccmessage" required></textarea> 
-              <label for="ccmessage">Write your message here</label>
+              <h3 class="toppest-title padding-left-0">Contact Us</h3>
+              <p>
+                If you have any concerns or for cancellation please fill out the form below or email us at <a href="mailto:support@funtour.ph?subject=Contact%20Us">support@cellcomcentral.com</a>. You may also contact us at our local numbers.
+              </p>
+
+              <ul class="contact-numbers">
+                <li><i class="material-icons left small">phone_iphone</i>+1 (424) 340-4059</li>
+              </ul>
+
+              <div class="line-height-1">
+                <div class="input-field animated fadeInUp">
+                  <input id="ccname" name="ccname" type="text" class="validate" required>
+                  <label for="ccname">Name*</label>
+                </div>
+              </div>
+              <div class="input-field animated fadeInUp delay-2 line-height-1">
+                <input id="email" name="email" type="email" class="validate" required>
+                <label for="email">Email*</label>
+              </div>
+              <div class="input-field animated fadeInUp delay-3 line-height-1">
+                <input id="telephone" name="telephone" type="text" class="validate">
+                <label for="telephone">Phone Number</label>
+              </div>
+              <div class="input-field animated fadeInUp delay-3 line-height-1">
+                <input id="bookingNumber" name="bookingNumber" type="text" class="validate">
+                <label for="bookingNumber">Booking Number</label>
+              </div>
+
+              <div class="input-field animated fadeInUp delay-3 line-height-1">
+                <input id="subject" name="subject" type="text" class="validate" required>
+                <label for="subject">Subject*</label>
+              </div>
+              
+              <div class="input-field animated fadeInUp delay-3 line-height-1">
+                <textarea class="materialize-textarea" id="ccmessage" name="ccmessage" required></textarea> 
+                <label for="ccmessage">Write your message here</label>
+              </div>
             </div>
 
             <div class="send-button">
@@ -131,10 +136,13 @@
           <ul id="left-sidebar-slide-out" class="side-nav collapsible">
             <div class="sidebar-toppest"></div>
             <li>
-              <a href="index.php" class="navi waves-effect"><i class="ion-android-home"></i> Booking</a>
+                <a href="index.php" class="navi waves-effect"><i class="material-icons">phone_android</i> Rentals</a>
             </li>
             <li>
-              <a href="#" class="navi waves-effect"><i class="ion-bookmark"></i> Contact Us</a>
+                <a href="about.html" class="navi waves-effect"><i class="material-icons">work</i> About</a>
+            </li>
+            <li>
+                <a href="#" class="navi waves-effect"><i class="material-icons">mail</i> Contact Us</a>
             </li>
           </ul>
           <!-- End of Left Sidebar --> 
