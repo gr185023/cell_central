@@ -233,8 +233,8 @@ function checkPhone() {
 }
 
 function convertStringToDate(date) {
-    var dt = new Date(parseInt(date.substring(0, 3), 10),        // Year
-                  parseInt(date.substring(5, 7), 10), // Month 
+    var dt = new Date(parseInt(date.substring(0, 4), 10),        // Year
+                  parseInt(date.substring(5, 7) - 1, 10), // Month 
                   parseInt(date.substring(8), 10));  // Day
     return dt;
 }
@@ -292,9 +292,16 @@ $(document).ready(function() {
     // Click on the arrow will make the page scroll and hide the header image
     $('.book-button').on('click',function(e){
         e.preventDefault();
+
+        var reg = /([2]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/g;
+        var pickupDateStr  = $('#pickupDate').val();
+        var toDateStr = $('#toDate').val();
+        var pickupMatch = pickupDateStr.match(reg);
+        var toDateMatch = toDateStr.match(reg);
         if($('#simCount').find(":selected").val() !== '0' && 
             (($('#pickupDate').is(':visible') && $('#pickupDate').val().length !== 0) ||
-                !$('#pickupDate').is(':visible'))) 
+                !$('#pickupDate').is(':visible')) &&
+            (pickupMatch && toDateMatch)) 
         {
             var phoneTotal = checkPhone();
             var tempSimVal = 29.99;
@@ -302,12 +309,11 @@ $(document).ready(function() {
             var simTotal = simCount * tempSimVal;
             var subTotal = simTotal;
             if( $('#pickupDate').is(':visible')) {
-                var pickupDateStr  = $('#pickupDate').val();
-                var toDateStr = $('#toDate').val();
                 var pickupDate = convertStringToDate(pickupDateStr);
                 var toDate = convertStringToDate(toDateStr);
-                var rentDays = ((toDate - pickupDate) / (1000*60*60*24) + 1);
-                $('#bd-rental-dates').text( $('#pickupDate').val() + " to " + $('#toDate').val() + " (" + rentDays + "d)");
+                var tzOffset = (pickupDate.getTimezoneOffset() <= toDate.getTimezoneOffset()) ? 1 : 0;
+                var rentDays = Math.ceil((toDate - pickupDate) / (1000*60*60*24)) + tzOffset;
+                $('#bd-rental-dates').text( $('#pickupDate').val() + " to " + $('#toDate').val() + " (" + rentDays + "days)");
                 $('#bd-rental-dates').removeClass('hidden');
 
                 subTotal = simTotal + (phoneTotal * rentDays);
@@ -324,8 +330,8 @@ $(document).ready(function() {
             smoothScrollTo('#form-container');
         }
         else {
-            if( $('#pickupDate').val().length === 0 ) { $('#pickupDate').addClass('warning'); }
-            if( $('#toDate').val().length === 0 ) { $('#toDate').addClass('warning'); }
+            if( $('#pickupDate').val().length === 0 || !pickupMatch) { $('#pickupDate').addClass('warning'); }
+            if( $('#toDate').val().length === 0  || !toDateMatch) { $('#toDate').addClass('warning'); }
             if($('#simCount').find(":selected").val() === '0') { $('#simCount').addClass('warning'); }
             $('#cWarningMessage').removeClass('hidden');
         }
