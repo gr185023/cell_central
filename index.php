@@ -225,11 +225,11 @@ $_SESSION['cc']= 1;
                                 </ul>
                                 <div class="flex1">
                                     <img id="bd-van-img" src="img/iphone.png">iPhone</img>
-                                    <button id="bdVanCount" type="button" class="btn-flat grey lighten-2">1</button>
+                                    <button id="bd-iphone-cnt" type="button" class="btn-flat grey lighten-2">0</button>
                                 </div>
                                 <div class="flex1">
                                     <img id="bd-car-img" src="img/android.png">Android</img>
-                                    <button id="bdSedanCount" type="button" class="btn-flat grey lighten-2">1</button>
+                                    <button id="bd-android-cnt" type="button" class="btn-flat grey lighten-2">0</button>
                                 </div>
                             </div>
                         </div>

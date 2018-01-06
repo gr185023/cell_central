@@ -217,6 +217,9 @@ function checkPhone() {
     var tempAndroidTotal = androidCount * tempAndroidVal;
     $('#bd-android').text("x" + androidCount + " = $" + tempAndroidTotal.toFixed(2));
 
+    $('#bd-iphone-cnt').text(iphoneCount);
+    $('#bd-android-cnt').text(androidCount);
+
     var tempSubtotal = tempAndroidTotal+tempiPhoneTotal;
 
     if(phoneChecked) { 
